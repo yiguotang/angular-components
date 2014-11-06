@@ -1,0 +1,9 @@
+[
+    {"formElement":"input", "label":"姓名", "type":"text", "id":"Name", "name":"username", "isRequired":true, "minlength":5, "maxlenght":20, "model":"user.username", "tipmessage":"请输入您的姓名"},
+    {"formElement":"input", "label":"密码", "type":"password", "id":"Password", "name":"password", "isRequired":true, "pattern":"", "model":"user.password", "tipmessage":"请输入您的密码"},
+    {"formElement":"input", "label":"重复密码", "type":"password", "id":"RePassword", "name":"repassword", "isRequired":true, "model":"user.repassword", "tipmessage":"请再一次输入密码"},
+    {"formElement":"select", "label":"性别", "type":"Gender", "name":"gender", "options":[{"vaule":"male", "show":"男"}, {"value":"female", "show":"女"}, {"value":"keepsecret", "show":"保密"}], "isRequired":true, "model":"user.gender", "tipmessage":""},
+    {"formElement":"input", "label":"邮箱", "type":"email", "id":"Email", "name":"email", "isRequired":true, "model":"user.email", "tipmessage":"请输入您的常用邮箱"},
+    {"formElement":"input", "label":"日期", "type":"date", "id":"Date", "name":"date", "isRequired":true, "model":"user.date", "tipmessage":""},
+    {"formElement":"input", "label":"年龄", "type":"number", "id":"Age", "name":"age", "isRequired":false, "model":"user.age", "tipmessage":"请输入您的年龄"}
+]

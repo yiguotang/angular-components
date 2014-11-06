@@ -1,0 +1,38 @@
+field:
+    input元素：
+        field.name
+        field.password
+        field.email
+        field.date
+        field.number
+
+    select元素：
+
+    单选框：
+        <div class="radio">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>男
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">女
+          </label>
+        </div>
+
+    验证：
+        唯一性（unique）：姓名是否已经存在
+		姓名的字符验证：
+			必须包含xxxx
+		长度验证信息：
+			长度范围须在xxx
+        密码一致性:?
+		两个密码是否一致
+		密码正则匹配
+        邮箱的可用性：正则可用
+        年龄的范围：正则范围
+        省份级联：使用ajax还是其他？
+
+    表单提交：
+        如何获取表单中的元素value？
+            方案：在指令中获取遍历元素的val，并保存到数组中，然后使用$http服务post提交

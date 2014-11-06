@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app="pagingApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>分页</title>
+    <link rel="stylesheet" href="../styles/bootstrap.min.css"/>
+</head>
+<body>
+    <div class="container" ng-controller="PagingController">
+        <div class="input-group global-search">
+            <label class="input-group-addon">全局搜索</label>
+            <input class="form-control" type="text"/>
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th ng-repeat="column in vm.columns">
+                        <span ng-bind="column.label"></span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" ng-model="vm.filter.id" class="form-control" /></td>
+                    <td><input type="text" ng-model="vm.filter.name" class="form-control" /></td>
+                    <td><input type="number" ng-model="vm.filter.followers" class="form-control" /></td>
+                    <td><input type="number" ng-model="vm.filter.income" class="form-control" /></td>
+                    <td></td>
+                </tr>
+                <tr ng-repeat="item in vm.items">
+                    <td>
+                        <span ng-bind="item.id"></span>
+                        <span class="btn btn-primary btn-xs pull-right" title="编辑" ng-if="!item.$editing" ng-click="item.$editing = true">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </span>
+                        <span class="btn btn-primary btn-xs pull-right" title="保存" ng-if="item.$editing" ng-click="item.$editing = false">
+                            <i class="glyphicon glyphicon-floppy-disk"></i>
+                        </span>
+                    </td>
+                    <td>
+                        <span ng-if="!item.$editing" ng-bind="item.name"></span>
+                        <input class="form-control" type="text" ng-model="item.name" ng-if="item.$editing"/>
+                    </td>
+                    <td class="text-right">
+                        <span ng-if="!item.$editing" ng-bind="item.followers | number"></span>
+                        <input class="form-control" type="number" ng-model="item.followers" ng-if="item.$editing"/>
+                    </td>
+                    <td class="text-right">
+                        <span ng-if="!item.$editing" ng-bind="item.income | currency:'￥'"></span>
+                        <input class="form-control" type="number" ng-model="item.income" ng-if="item.$editing"/>
+                    </td>
+                    <td>
+                        <span class="btn btn-primary btn-xs" title="详情">
+                            <i class="glyphicon glyphicon-comment"></i>
+                        </span>
+                        <div class="relative">
+                            <div class="popover">
+                                <div class="popover-title" ng-style="{display: item.popover?'block':'none'}">
+                                    {{item.id}} - {{item.name}}
+                                </div>
+                                <div class="popover-content">
+                                    粉丝：{{item.followers|number}}<br/>
+                                    生日：{{item.birthday|date}}<br/>
+                                    年龄：{{vm.age(birthday)}}岁<br/>
+                                    收入：{{item.income|currency}}
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src="../scripts/vendor/angular.min.js"></script>
+<script src="../scripts/vendor/moment.js"></script>
+<script src="pagingController.js"></script>
+</html>
