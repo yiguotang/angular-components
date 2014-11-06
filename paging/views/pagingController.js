@@ -1,7 +1,7 @@
 /**
  * Created by zhy on 2014/11/4.
  */
-var app = angular.module('pagingApp', []);
+var app = angular.module('pagingApp', ['page.order']);
 
 app.controller('PagingController', ['$scope', function($scope){
     var vm = $scope.vm = {};
@@ -57,10 +57,6 @@ app.controller('PagingController', ['$scope', function($scope){
         }
     ];
 
-    vm.age = function (birthday) {
-        return moment().diff(birthday, 'years');
-    };
-
     vm.items = [];
     var MAX_NUM = 10 * 10;
 
@@ -74,9 +70,18 @@ app.controller('PagingController', ['$scope', function($scope){
             id: i+1,
             name: 'Name' + id,
             followers: rand(0, 100 * 100),
-            birthday: moment().subtract('day', rand(365, 365 * 50)).toDate(),
+            birthday: moment().subtract(rand(365, 365 * 50), 'day').toDate(),
             summary: 'this is test ' + i,
             income: rand(3000, 10000)
         });
     }
+
+    /**
+     * 根据生日计算年龄的方法（moment.js）
+     * @param birthday
+     * @returns age
+     */
+    vm.age = function (birthday) {
+        return moment().diff(birthday, 'years');
+    };
 }]);

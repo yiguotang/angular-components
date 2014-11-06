@@ -9,14 +9,16 @@
     <div class="container" ng-controller="PagingController">
         <div class="input-group global-search">
             <label class="input-group-addon">全局搜索</label>
-            <input class="form-control" type="text"/>
+            <input class="form-control" type="text" ng-model="vm.filter.$"/>
         </div>
 
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th ng-repeat="column in vm.columns">
+                    <th ng-repeat="column in vm.columns" ng-if="!column.hidden" ng-click="vm.sort.toggle(column)" ng-class="{sortable:column.sortable !== false}">
                         <span ng-bind="column.label"></span>
+                        <!--根据倒序或正序变化图标，主要使用filter实现图标的class变化-->
+                        <i ng-if="column.name===vm.sort.column && vm.sort.direction" class="glyphicon {{vm.sort.direction|sequenceOrder}}"></i>
                     </th>
                 </tr>
             </thead>
@@ -51,19 +53,19 @@
                         <input class="form-control" type="number" ng-model="item.income" ng-if="item.$editing"/>
                     </td>
                     <td>
-                        <span class="btn btn-primary btn-xs" title="详情">
+                        <span class="btn btn-primary btn-xs" title="详情" ng-mouseenter="item.popover=true" ng-mouseleave="item.popover=false">
                             <i class="glyphicon glyphicon-comment"></i>
                         </span>
                         <div class="relative">
-                            <div class="popover">
-                                <div class="popover-title" ng-style="{display: item.popover?'block':'none'}">
+                            <div class="popover" ng-style="{display: item.popover?'block':'none'}">
+                                <div class="popover-title">
                                     {{item.id}} - {{item.name}}
                                 </div>
                                 <div class="popover-content">
                                     粉丝：{{item.followers|number}}<br/>
-                                    生日：{{item.birthday|date}}<br/>
-                                    年龄：{{vm.age(birthday)}}岁<br/>
-                                    收入：{{item.income|currency}}
+                                    生日：{{item.birthday|date:'yyyy-MM-dd'}}<br/>
+                                    年龄：{{vm.age(item.birthday)}}岁<br/>
+                                    收入：{{item.income|currency:'￥'}}
                                 </div>
                             </div>
                         </div>
@@ -75,5 +77,6 @@
 </body>
 <script src="../scripts/vendor/angular.min.js"></script>
 <script src="../scripts/vendor/moment.js"></script>
+<script src="orderFilter.js"></script>
 <script src="pagingController.js"></script>
 </html>
