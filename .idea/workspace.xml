@@ -26,7 +26,7 @@
       <file leaf-file-name="paging.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/paging/views/paging.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.88271606" vertical-offset="587" max-vertical-offset="1653">
+            <state vertical-scroll-proportion="0.5308642" vertical-offset="815" max-vertical-offset="1653">
               <caret line="61" column="63" selection-start-line="61" selection-start-column="63" selection-end-line="61" selection-end-column="63" />
               <folding />
             </state>
@@ -429,12 +429,12 @@
       <changelist id="9c02c75b-b3eb-4a02-979d-f8ab9320d820" name="Default" comment="" />
       <created>1415263566705</created>
       <updated>1415263566705</updated>
-      <workItem from="1415263572239" duration="3868000" />
+      <workItem from="1415263572239" duration="3939000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3868000" />
+    <option name="totallyTimeSpent" value="3939000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="0" />
@@ -515,7 +515,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/paging/views/paging.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.88271606" vertical-offset="587" max-vertical-offset="1653">
+        <state vertical-scroll-proportion="0.5308642" vertical-offset="815" max-vertical-offset="1653">
           <caret line="61" column="63" selection-start-line="61" selection-start-column="63" selection-end-line="61" selection-end-column="63" />
           <folding />
         </state>
